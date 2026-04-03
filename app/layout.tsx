@@ -9,9 +9,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "A & B | Two lives, one story",
+  title: "Jerrin & Jesny | The Wedding",
   description: "Join us as we begin forever. A cinematic wedding journey.",
 };
+
+import AudioPlayer from "@/components/AudioPlayer";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -21,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased dark`}>
       <body className="min-h-full font-sans bg-black text-white selection:bg-white/20 selection:text-white antialiased">
+        <CustomCursor />
         {children}
+        <AudioPlayer />
       </body>
     </html>
   );

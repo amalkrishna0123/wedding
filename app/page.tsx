@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WishingSection from "@/components/Wishes/WishingSection";
 import CountdownTimer from "@/components/CountdownTimer";
+import WeddingFooter from "@/components/WeddingFooter";
 import { useInView, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -109,6 +110,9 @@ export default function Home() {
 
       {/* Premium Wishing Section with Firebase Sync */}
       <WishingSection />
+
+      {/* Wedding Footer */}
+      <WeddingFooter />
     </main>
   );
 }

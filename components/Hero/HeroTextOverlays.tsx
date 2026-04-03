@@ -2,6 +2,7 @@
 
 import { useTransform, motion, MotionValue } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import CountdownTimer from "../CountdownTimer";
 
 export default function HeroTextOverlays({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
 
@@ -71,6 +72,9 @@ export default function HeroTextOverlays({ scrollYProgress }: { scrollYProgress:
              <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase mt-2 opacity-60">
                 Jeevz Square Convention Centre, Kallidukku, Thrissur
              </span>
+             <div className="flex md:justify-end">
+               <CountdownTimer />
+             </div>
            </div>
         </motion.div>
       </div>
