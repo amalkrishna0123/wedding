@@ -151,10 +151,7 @@ function HangingString() {
 // ─── Card Face: Front ─────────────────────────────────────────────────────────
 function CardFront() {
   return (
-    <div
-      className="absolute inset-0 flex flex-col items-center justify-center select-none"
-      style={{ backfaceVisibility: "hidden" }}
-    >
+    <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
       {/* Ornamental top */}
       <motion.div
         initial={{ opacity: 0, scaleX: 0 }}
@@ -288,13 +285,7 @@ function CardFront() {
 // ─── Card Face: Back ──────────────────────────────────────────────────────────
 function CardBack() {
   return (
-    <div
-      className="absolute inset-0 flex flex-col items-center justify-center px-8 select-none"
-      style={{
-        backfaceVisibility: "hidden",
-        transform: "rotateY(180deg)",
-      }}
-    >
+    <div className="absolute inset-0 flex flex-col items-center justify-center px-8 select-none">
       {/* Ceremony */}
       <div style={{ textAlign: "center", marginBottom: 20 }}>
         <p
