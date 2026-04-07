@@ -47,12 +47,34 @@ export default function Home() {
         ref={containerRef}
         className="relative z-10 w-full min-h-screen bg-white flex items-center justify-center border-t border-black/5 py-20 overflow-hidden"
       >
-         {/* Parallax Background Images */}
+         {/* Parallax Background Images - Image 1 is now a functional Share Button */}
          <motion.div 
             style={{ y: y1 }}
-            className="absolute top-[10%] left-[5%] w-64 h-80 md:w-80 md:h-96 opacity-[0.0] grayscale z-0 pointer-events-none"
+            className="absolute top-[10%] left-[5%] w-64 h-80 md:w-80 md:h-96 opacity-[0.4] grayscale z-20 cursor-pointer hover:opacity-100 transition-all duration-500"
+            whileHover={{ scale: 1.03 }}
+            onClick={() => {
+              const url = "https://jesnyjerrin.vercel.app/";
+              const text = `囍 Jerrin & Jesny's Wedding Invitation: ${url}`;
+              window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+            }}
          >
-            <img src="/assets/Us/1.jpeg" alt="" className="w-full h-full object-cover rounded-2xl" />
+            <img src="/assets/Us/1.jpeg" alt="" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
+            
+            {/* Subtle Overlay Hint */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10 rounded-2xl opacity-0 hover:opacity-100 transition-opacity">
+               <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-xl">
+                  <span className="text-[9px] font-black tracking-[0.4em] uppercase text-black">
+                     Share Invitation
+                  </span>
+               </div>
+            </div>
+
+            {/* Subtle pulsate border to draw eye to share feature */}
+            <motion.div
+               animate={{ opacity: [0.1, 0.3, 0.1] }}
+               transition={{ duration: 3, repeat: Infinity }}
+               className="absolute inset-0 border-2 border-white/50 rounded-2xl pointer-events-none"
+            />
          </motion.div>
 
          <motion.div 

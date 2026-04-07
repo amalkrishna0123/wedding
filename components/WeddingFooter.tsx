@@ -857,6 +857,69 @@ export default function WeddingFooter() {
           </svg>
         </motion.div>
 
+        {/* Tagline & Map */}
+        <div className="w-full flex flex-col items-center mt-16 px-4">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontSize: isMobile ? 18 : 24,
+              fontWeight: 300,
+              color: "rgba(0, 78, 30, 0.8)",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              marginBottom: 32,
+              textAlign: "center",
+            }}
+          >
+            Visit the Reception as well
+          </motion.h3>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              width: "100%",
+              maxWidth: 700,
+              height: isMobile ? 320 : 480,
+              borderRadius: 30,
+              overflow: "hidden",
+              boxShadow: "0 40px 100px rgba(0,0,0,0.1), 0 0 80px rgba(180,150,255,0.05)",
+              border: "1px solid rgba(0,0,0,0.1)",
+              background: "rgba(255, 255, 255, 0.6)",
+              backdropFilter: "blur(20px)",
+              position: "relative",
+            }}
+          >
+            {/* Map iframe */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.270105689205!2d76.34051749999999!3d10.5580239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7e5405cc19945%3A0x78028b48378b2566!2sJeevz%20Square!5e0!3m2!1sen!2sin!4v1775588151941!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            {/* Inner top glow */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "20%",
+                background: "linear-gradient(to bottom, rgba(255,255,255,0.3), transparent)",
+                pointerEvents: "none",
+              }}
+            />
+          </motion.div>
+        </div>
+
         {/* Footer bar */}
         <motion.div
           initial={{ opacity: 0 }}

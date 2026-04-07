@@ -11,6 +11,20 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Jerrin & Jesny | The Wedding",
   description: "Join us as we begin forever. A cinematic wedding journey.",
+  openGraph: {
+    title: "Jerrin & Jesny | The Wedding",
+    description: "Join us as we begin forever. A cinematic wedding journey.",
+    url: "https://jesnyjerrin.vercel.app/",
+    siteName: "The Wedding of Jerrin and Jesny",
+    images: [{ url: "/assets/Us/1.jpeg", width: 1200, height: 1600 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jerrin & Jesny | The Wedding",
+    description: "Join us as we begin forever. A cinematic wedding journey.",
+    images: ["/assets/Us/1.jpeg"],
+  },
 };
 
 import AudioPlayer from "@/components/AudioPlayer";
