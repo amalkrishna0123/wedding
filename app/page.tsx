@@ -50,7 +50,7 @@ export default function Home() {
          {/* Parallax Background Images - Image 1 is now a functional Share Button */}
          <motion.div 
             style={{ y: y1 }}
-            className="absolute top-[10%] left-[5%] w-64 h-80 md:w-80 md:h-96 opacity-[0.4] grayscale z-20 cursor-pointer hover:opacity-100 transition-all duration-500"
+            className="absolute top-[10%] left-[5%] w-64 h-80 md:w-80 md:h-96 opacity-[0.0] grayscale z-20 cursor-pointer hover:opacity-100 transition-all duration-500"
             whileHover={{ scale: 1.03 }}
             onClick={() => {
               const url = "https://jesnyjerrin.vercel.app/";
