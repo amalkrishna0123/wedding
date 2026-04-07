@@ -55,7 +55,7 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            className="absolute inset-0 bg-white/90 backdrop-blur-sm"
           />
 
           {/* Modal Content */}
@@ -63,7 +63,7 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-zinc-900 border border-white/10 rounded-[40px] p-10 overflow-hidden shadow-2xl"
+            className="relative w-full max-w-lg bg-white border border-black/10 rounded-[40px] p-10 overflow-hidden shadow-2xl"
           >
             {/* Background Texture Overlay */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
@@ -71,23 +71,23 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
 
             <button
               onClick={onClose}
-              className="absolute top-8 right-8 p-3 rounded-full hover:bg-white/5 transition-colors group z-10"
+              className="absolute top-8 right-8 p-3 rounded-full hover:bg-black/5 transition-colors group z-10"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
+              <X className="w-5 h-5 text-black/40 group-hover:text-black transition-colors" />
             </button>
 
             <div className="relative z-10">
               <header className="mb-10">
-                <h3 className="text-4xl font-extrabold tracking-tight mb-3">Leave a Wish</h3>
-                <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase font-black leading-none">
-                  Share your love for A & B
+                <h3 className="text-4xl font-extrabold tracking-tight mb-3 text-black">Leave a Wish</h3>
+                <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase font-black leading-none">
+                  Share your love for Jerrin & Jesny
                 </p>
               </header>
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black tracking-[0.3em] uppercase text-white/20 ml-6">
+                  <label className="text-[10px] font-black tracking-[0.3em] uppercase text-black/20 ml-6">
                     Identity
                   </label>
                   <input
@@ -96,12 +96,12 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your Name or Family"
-                    className="w-full bg-white/[0.03] border border-white/[0.05] rounded-[24px] px-8 py-5 outline-none focus:border-white/20 focus:bg-white/[0.06] transition-all text-white placeholder:text-white/10 text-sm"
+                    className="w-full bg-black/[0.03] border border-black/[0.05] rounded-[24px] px-8 py-5 outline-none focus:border-black/20 focus:bg-black/[0.06] transition-all text-black placeholder:text-black/10 text-sm"
                   />
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black tracking-[0.3em] uppercase text-white/20 ml-6">
+                  <label className="text-[10px] font-black tracking-[0.3em] uppercase text-black/20 ml-6">
                     Sentiment
                   </label>
                   <textarea
@@ -110,17 +110,17 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
                     value={wishText}
                     onChange={(e) => setWishText(e.target.value)}
                     placeholder="Write something heartfelt..."
-                    className="w-full bg-white/[0.03] border border-white/[0.05] rounded-[24px] px-8 py-5 outline-none focus:border-white/20 focus:bg-white/[0.06] transition-all text-white placeholder:text-white/10 text-sm resize-none"
+                    className="w-full bg-black/[0.03] border border-black/[0.05] rounded-[24px] px-8 py-5 outline-none focus:border-black/20 focus:bg-black/[0.06] transition-all text-black placeholder:text-black/10 text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full relative py-6 bg-white text-black text-xs font-black tracking-[0.4em] uppercase rounded-full overflow-hidden group transition-all active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed mt-4 shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
+                  className="w-full relative py-6 bg-black text-white text-xs font-black tracking-[0.4em] uppercase rounded-full overflow-hidden group transition-all active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed mt-4 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
                 >
                   <span className="relative z-10">{isSubmitting ? "Recording..." : "Seal with Love"}</span>
-                  <div className="absolute inset-0 bg-zinc-200 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.22, 1, 0.36, 1]" />
+                  <div className="absolute inset-0 bg-zinc-800 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.22, 1, 0.36, 1]" />
                 </button>
               </form>
             </div>

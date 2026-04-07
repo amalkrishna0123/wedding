@@ -6,8 +6,8 @@
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 
 @layer base {
   * {
-    @apply border-white/10;
+    @apply border-black/10;
   }
 }
 
@@ -28,5 +28,5 @@ body {
 }
 
 .text-edge-outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
 }

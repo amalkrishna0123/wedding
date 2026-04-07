@@ -59,7 +59,7 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
         rotateZ: offsetRotate,
         transformStyle: "preserve-3d",
       }}
-      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-[#0d0d0d] border border-white/5 rounded-[60px] group transition-all duration-1000 hover:border-white/30 cursor-grab active:cursor-grabbing shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
+      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-white border border-black/5 rounded-[60px] group transition-all duration-1000 hover:border-black/30 cursor-grab active:cursor-grabbing shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)]"
     >
       {/* Felt/Paper Texture Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay rounded-[60px]" 
@@ -72,19 +72,19 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
               animate={{ rotate: [0, 5, -5, 0] }}
               transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
             >
-              <Quote className="w-12 h-12 text-white/5 transition-colors duration-1000 group-hover:text-white/20" />
+              <Quote className="w-12 h-12 text-black/5 transition-colors duration-1000 group-hover:text-black/20" />
             </motion.div>
             
-            <p className="text-2xl md:text-3xl font-medium tracking-tight italic leading-[1.4] text-white/60 group-hover:text-white transition-colors duration-1000 line-clamp-6">
+            <p className="text-2xl md:text-3xl font-medium tracking-tight italic leading-[1.4] text-black/60 group-hover:text-black transition-colors duration-1000 line-clamp-6">
                “{wishText}”
             </p>
          </div>
 
-         <div className="pt-10 border-t border-white/5 space-y-2">
-            <span className="block text-[10px] font-black tracking-[0.5em] uppercase text-white/20">
+         <div className="pt-10 border-t border-black/5 space-y-2">
+            <span className="block text-[10px] font-black tracking-[0.5em] uppercase text-black/20">
                With Heartfelt Love
             </span>
-            <span className="block text-lg font-bold tracking-tight uppercase text-white/80 group-hover:text-white transition-all duration-1000">
+            <span className="block text-lg font-bold tracking-tight uppercase text-black/80 group-hover:text-black transition-all duration-1000">
                {name}
             </span>
          </div>

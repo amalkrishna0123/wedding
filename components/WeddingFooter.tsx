@@ -57,12 +57,12 @@ function Particle({ index }: { index: number }) {
         height: size,
         left: `${xStart}%`,
         bottom: "-10px",
-        background: `radial-gradient(circle, rgba(255,255,255,${0.06 + Math.random() * 0.12}), transparent)`,
+        background: `radial-gradient(circle, rgba(0,0,0,${0.06 + Math.random() * 0.12}), transparent)`,
       }}
       animate={{
         y: [0, -(600 + Math.random() * 400)],
         x: [0, xDrift],
-        opacity: [0, 0.7, 0.4, 0],
+        opacity: [0, 0.4, 0.2, 0],
         scale: [0.5, 1, 0.8, 0],
       }}
       transition={{
@@ -132,7 +132,7 @@ function HangingString() {
           width: 1,
           height: 60,
           background:
-            "linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), rgba(255,255,255,0.08))",
+            "linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), rgba(0,0,0,0.05))",
         }}
       />
       <div
@@ -140,8 +140,8 @@ function HangingString() {
           width: 5,
           height: 5,
           borderRadius: "50%",
-          background: "rgba(255,255,255,0.35)",
-          boxShadow: "0 0 8px 2px rgba(255,255,255,0.15)",
+          background: "rgba(0,0,0,0.2)",
+          boxShadow: "0 0 8px 2px rgba(0,0,0,0.05)",
         }}
       />
     </motion.div>
@@ -164,7 +164,7 @@ function CardFront() {
             width: 40,
             height: 1,
             background:
-              "linear-gradient(to right, transparent, rgba(255,255,255,0.25))",
+              "linear-gradient(to right, transparent, rgba(0,0,0,0.15))",
           }}
         />
         <div
@@ -172,7 +172,7 @@ function CardFront() {
             width: 5,
             height: 5,
             transform: "rotate(45deg)",
-            border: "1px solid rgba(255,255,255,0.3)",
+            border: "1px solid rgba(0,0,0,0.2)",
           }}
         />
         <div
@@ -180,7 +180,7 @@ function CardFront() {
             width: 40,
             height: 1,
             background:
-              "linear-gradient(to left, transparent, rgba(255,255,255,0.25))",
+              "linear-gradient(to left, transparent, rgba(0,0,0,0.15))",
           }}
         />
       </motion.div>
@@ -194,7 +194,7 @@ function CardFront() {
           fontSize: 9,
           letterSpacing: "0.55em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.3)",
+          color: "rgba(0,0,0,0.35)",
           marginBottom: 20,
           fontWeight: 700,
         }}
@@ -205,7 +205,7 @@ function CardFront() {
       {/* Names */}
       <motion.h2
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ delay: 0.4, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
         style={{
           fontSize: "clamp(2.2rem, 6vw, 3.5rem)",
@@ -214,14 +214,13 @@ function CardFront() {
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
           textAlign: "center",
-          color: "rgba(255,255,255,0.92)",
-          textShadow: "0 0 40px rgba(255,255,255,0.1)",
+          color: "rgba(0,0,0,0.9)",
         }}
       >
         {weddingDetails.groom}
         <span
           style={{
-            color: "rgba(255,255,255,0.2)",
+            color: "rgba(0,0,0,0.15)",
             margin: "0 12px",
             fontStyle: "normal",
             fontWeight: 200,
@@ -240,7 +239,7 @@ function CardFront() {
         style={{
           width: 48,
           height: 1,
-          background: "rgba(255,255,255,0.15)",
+          background: "rgba(0,0,0,0.1)",
           margin: "16px auto",
         }}
       />
@@ -248,13 +247,13 @@ function CardFront() {
       {/* Date */}
       <motion.p
         initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0, duration: 0.7 }}
         style={{
           fontSize: 11,
           letterSpacing: "0.42em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.35)",
+          color: "rgba(0,0,0,0.4)",
           fontWeight: 600,
         }}
       >
@@ -272,7 +271,7 @@ function CardFront() {
           fontSize: 8,
           letterSpacing: "0.4em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.18)",
+          color: "rgba(0,0,0,0.25)",
           fontWeight: 600,
         }}
       >
@@ -293,7 +292,7 @@ function CardBack() {
             fontSize: 8,
             letterSpacing: "0.5em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(0,0,0,0.25)",
             fontWeight: 700,
             marginBottom: 6,
           }}
@@ -304,7 +303,7 @@ function CardBack() {
           style={{
             fontSize: 22,
             fontWeight: 300,
-            color: "rgba(255,255,255,0.88)",
+            color: "rgba(0,0,0,0.88)",
             letterSpacing: "0.08em",
           }}
         >
@@ -313,7 +312,7 @@ function CardBack() {
         <p
           style={{
             fontSize: 12,
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(0,0,0,0.5)",
             letterSpacing: "0.1em",
             marginTop: 3,
           }}
@@ -325,7 +324,7 @@ function CardBack() {
             fontSize: 9,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(0,0,0,0.25)",
             marginTop: 2,
           }}
         >
@@ -346,7 +345,7 @@ function CardBack() {
           style={{
             width: 30,
             height: 1,
-            background: "rgba(255,255,255,0.12)",
+            background: "rgba(0,0,0,0.12)",
           }}
         />
         <div
@@ -354,14 +353,14 @@ function CardBack() {
             width: 4,
             height: 4,
             transform: "rotate(45deg)",
-            border: "1px solid rgba(255,255,255,0.2)",
+            border: "1px solid rgba(0,0,0,0.2)",
           }}
         />
         <div
           style={{
             width: 30,
             height: 1,
-            background: "rgba(255,255,255,0.12)",
+            background: "rgba(0,0,0,0.12)",
           }}
         />
       </div>
@@ -373,7 +372,7 @@ function CardBack() {
             fontSize: 8,
             letterSpacing: "0.5em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(0,0,0,0.25)",
             fontWeight: 700,
             marginBottom: 6,
           }}
@@ -384,7 +383,7 @@ function CardBack() {
           style={{
             fontSize: 22,
             fontWeight: 300,
-            color: "rgba(255,255,255,0.88)",
+            color: "rgba(0,0,0,0.88)",
             letterSpacing: "0.08em",
           }}
         >
@@ -393,7 +392,7 @@ function CardBack() {
         <p
           style={{
             fontSize: 12,
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(0,0,0,0.5)",
             letterSpacing: "0.1em",
             marginTop: 3,
           }}
@@ -405,7 +404,7 @@ function CardBack() {
             fontSize: 9,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(0,0,0,0.25)",
             marginTop: 2,
           }}
         >
@@ -429,7 +428,7 @@ function CardBack() {
           fontSize: 8,
           letterSpacing: "0.5em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.2)",
+          color: "rgba(0,0,0,0.2)",
           fontWeight: 700,
           marginBottom: 12,
         }}
@@ -453,7 +452,7 @@ function CardBack() {
               fontSize: 7,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.25)",
+              color: "rgba(0,0,0,0.25)",
               fontWeight: 700,
               marginBottom: 4,
             }}
@@ -463,7 +462,7 @@ function CardBack() {
           <p
             style={{
               fontSize: 11,
-              color: "rgba(255,255,255,0.6)",
+              color: "rgba(0,0,0,0.6)",
               letterSpacing: "0.08em",
               fontWeight: 300,
               lineHeight: 1.4,
@@ -484,7 +483,7 @@ function CardBack() {
               fontSize: 7,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.25)",
+              color: "rgba(0,0,0,0.25)",
               fontWeight: 700,
               marginBottom: 4,
             }}
@@ -494,7 +493,7 @@ function CardBack() {
           <p
             style={{
               fontSize: 11,
-              color: "rgba(255,255,255,0.6)",
+              color: "rgba(0,0,0,0.6)",
               letterSpacing: "0.08em",
               fontWeight: 300,
               lineHeight: 1.4,
@@ -513,7 +512,7 @@ function CardBack() {
             fontSize: 7,
             letterSpacing: "0.45em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.18)",
+            color: "rgba(0,0,0,0.18)",
             fontWeight: 700,
             marginBottom: 4,
           }}
@@ -523,7 +522,7 @@ function CardBack() {
         <p
           style={{
             fontSize: 13,
-            color: "rgba(255,255,255,0.4)",
+            color: "rgba(0,0,0,0.4)",
             letterSpacing: "0.3em",
             fontStyle: "italic",
             fontWeight: 300,
@@ -592,7 +591,7 @@ export default function WeddingFooter() {
       style={{
         minHeight: "100vh",
         background:
-          "radial-gradient(ellipse 80% 60% at 50% 100%, #0c0a0f 0%, #050407 60%, #000000 100%)",
+          "radial-gradient(ellipse 80% 60% at 50% 100%, #ffffff 0%, #fcfbfc 60%, #fafafa 100%)",
       }}
     >
       {/* ── Cinematic Background ── */}
@@ -603,7 +602,7 @@ export default function WeddingFooter() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(0,0,0,0.7) 100%)",
+              "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.5) 100%)",
           }}
         />
 
@@ -685,7 +684,7 @@ export default function WeddingFooter() {
             fontSize: 9,
             letterSpacing: "0.65em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.2)",
+            color: "rgba(0,0,0,0.25)",
             fontWeight: 700,
             marginBottom: 48,
             textAlign: "center",
@@ -754,11 +753,11 @@ export default function WeddingFooter() {
                     inset: 0,
                     borderRadius: 20,
                     background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 40%, rgba(200,180,255,0.04) 100%)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                      "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(200,180,255,0.1) 100%)",
+                    border: "1px solid rgba(0,0,0,0.1)",
                     backdropFilter: "blur(20px)",
                     boxShadow:
-                      "0 0 60px rgba(180,150,255,0.08), 0 30px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.12)",
+                      "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transformStyle: "preserve-3d",
                     backfaceVisibility: "hidden",
                   }}
@@ -773,11 +772,11 @@ export default function WeddingFooter() {
                     inset: 0,
                     borderRadius: 20,
                     background:
-                      "linear-gradient(135deg, rgba(200,180,255,0.07) 0%, rgba(255,255,255,0.03) 50%, rgba(150,120,220,0.06) 100%)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                      "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 50%, rgba(150,120,220,0.1) 100%)",
+                    border: "1px solid rgba(0,0,0,0.08)",
                     backdropFilter: "blur(20px)",
                     boxShadow:
-                      "0 0 60px rgba(180,150,255,0.1), 0 30px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)",
+                      "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transform: "rotateY(180deg)",
                     backfaceVisibility: "hidden",
                     transformStyle: "preserve-3d",

@@ -33,7 +33,7 @@ const Bubble = ({ index }: { index: number }) => {
         width: randomSize,
         height: randomSize,
       }}
-      className="absolute rounded-full border border-white/10 bg-white/5 backdrop-blur-[1px]"
+      className="absolute rounded-full border border-black/10 bg-black/5 backdrop-blur-[1px]"
     />
   );
 };

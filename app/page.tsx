@@ -26,7 +26,7 @@ export default function Home() {
   const y4 = useTransform(scrollYProgress, [0, 1], [150, -200]);
 
   return (
-    <main className="relative min-h-screen bg-black">
+    <main className="relative min-h-screen bg-white">
       <Navbar />
       
       {/* 
@@ -41,7 +41,7 @@ export default function Home() {
       */}
       <section 
         ref={containerRef}
-        className="relative z-10 w-full min-h-screen bg-black flex items-center justify-center border-t border-white/5 py-20 overflow-hidden"
+        className="relative z-10 w-full min-h-screen bg-white flex items-center justify-center border-t border-black/5 py-20 overflow-hidden"
       >
          {/* Parallax Background Images */}
          <motion.div 
@@ -74,10 +74,10 @@ export default function Home() {
 
          <div className="relative z-10 flex flex-col items-center gap-16 text-center max-w-4xl px-10">
             <div className="flex flex-col items-center gap-4">
-              <span className="text-[11px] font-black tracking-[0.6em] uppercase text-white/30">
+              <span className="text-[11px] font-black tracking-[0.6em] uppercase text-black/30">
                  Saved in Our Hearts
               </span>
-              <div className="w-12 h-[1px] bg-white/20" />
+              <div className="w-12 h-[1px] bg-black/20" />
             </div>
             
             <h2 className="text-5xl md:text-8xl font-light tracking-tight italic leading-[1.1]">
@@ -85,7 +85,7 @@ export default function Home() {
             </h2>
             
             <div className="flex flex-col items-center gap-8 max-w-xl">
-               <p className="text-xl text-white/50 font-light leading-relaxed tracking-wide">
+               <p className="text-xl text-black/50 font-light leading-relaxed tracking-wide">
                   Welcome to our digital invitation. This experience was crafted 
                   to share the intimacy and joy of our union. 
                   Scroll down to explore the details of our celebration.
@@ -96,9 +96,9 @@ export default function Home() {
                      <span className="text-3xl font-bold">
                         <CountdownTimer />
                      </span>
-                     <span className="text-[9px] font-bold tracking-[0.3em] uppercase opacity-30 text-white">Days Left</span>
+                     <span className="text-[9px] font-bold tracking-[0.3em] uppercase opacity-30 text-black">Days Left</span>
                   </div>
-                  <div className="w-[1px] h-10 bg-white/10" />
+                  <div className="w-[1px] h-10 bg-black/10" />
                   {/* <div className="flex flex-col items-center gap-2">
                      <span className="text-3xl font-bold">45</span>
                      <span className="text-[9px] font-bold tracking-[0.3em] uppercase opacity-30 text-white">Minutes From Airport</span>

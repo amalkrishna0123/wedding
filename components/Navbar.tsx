@@ -76,13 +76,13 @@ export default function Navbar() {
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] px-8 py-6 flex items-center justify-between transition-all duration-700",
-        isScrolled ? "bg-black/30 backdrop-blur-xl border-b border-white/5 py-4" : "bg-transparent"
+        isScrolled ? "bg-white/30 backdrop-blur-xl border-b border-black/5 py-4" : "bg-transparent"
       )}
     >
       {/* Brand */}
       <div className="flex items-center gap-3">
-        <div className="h-0.5 w-8 bg-white/20 hidden sm:block" />
-        <span className="text-xl font-extrabold tracking-[0.3em] uppercase transition-all duration-500 hover:tracking-[0.4em] cursor-default">
+        <div className="h-0.5 w-8 bg-black/20 hidden sm:block" />
+        <span className="text-xl font-extrabold tracking-[0.3em] uppercase transition-all duration-500 hover:tracking-[0.4em] cursor-default text-black">
           J & J
         </span>
       </div>
@@ -117,7 +117,7 @@ export default function Navbar() {
                         delay,
                         ease: "linear",
                       }}
-                      className="w-[2px] bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                      className="w-[2px] bg-black rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]"
                     />
                   ))}
                 </motion.div>
@@ -128,22 +128,22 @@ export default function Navbar() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <VolumeX size={18} className="text-white/40 group-hover:text-white transition-colors" />
+                  <VolumeX size={18} className="text-black/40 group-hover:text-black transition-colors" />
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 group-hover:text-white transition-colors hidden sm:block">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/50 group-hover:text-black transition-colors hidden sm:block">
             {isPlaying ? "Music On" : "Muted"}
           </span>
         </button>
 
         {/* RSVP CTA */}
-        <button className="relative px-8 py-2.5 overflow-hidden group border border-white/10 rounded-full transition-all duration-500 hover:border-white">
-          <span className="relative z-10 text-[11px] font-bold tracking-[0.25em] uppercase text-white group-hover:text-black transition-colors duration-500">
+        <button className="relative px-8 py-2.5 overflow-hidden group border border-black/10 rounded-full transition-all duration-500 hover:border-black">
+          <span className="relative z-10 text-[11px] font-bold tracking-[0.25em] uppercase text-black group-hover:text-white transition-colors duration-500">
             RSVP
           </span>
-          <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.22, 1, 0.36, 1]" />
+          <div className="absolute inset-0 bg-black translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.22, 1, 0.36, 1]" />
         </button>
       </div>
     </motion.nav>

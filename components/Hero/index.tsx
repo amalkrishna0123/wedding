@@ -28,7 +28,7 @@ export default function Hero() {
         pointerEvents: heroPointerEvents as any 
       }}
       transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
-      className="relative w-full h-[500vh] bg-black"
+      className="relative w-full h-[500vh] bg-white"
     >
       {/* 
         The canvas is sticky inside this 500vh section.
@@ -49,11 +49,11 @@ export default function Hero() {
         <span className="text-[9px] font-bold tracking-[0.6em] uppercase text-white/30 group-hover:text-white/60 transition-colors">
           Scroll to Begin Journey
         </span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/20 via-white/50 to-transparent relative overflow-hidden">
+        <div className="w-[1px] h-12 bg-gradient-to-b from-black/20 via-black/50 to-transparent relative overflow-hidden">
            <motion.div
              animate={{ top: ["-100%", "100%"] }}
              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-             className="absolute left-0 right-0 h-1/2 bg-white"
+             className="absolute left-0 right-0 h-1/2 bg-black"
            />
         </div>
       </motion.div>

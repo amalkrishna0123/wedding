@@ -51,10 +51,10 @@ export default function HeroTextOverlays({ scrollYProgress }: { scrollYProgress:
           style={{ opacity: opacityTL, y: yTL }} 
           className="max-w-2xl"
         >
-           <h1 className="text-6xl md:text-[140px] font-extrabold tracking-[-0.04em] leading-[0.8] mb-8 mt-[40px]">
-               Jerrin <span className="opacity-20">&</span> Jesny
+           <h1 className="text-6xl md:text-[140px] font-extrabold tracking-[-0.04em] leading-[0.8] mb-8 mt-[40px] text-black">
+               Jerrin <span className="opacity-30">&</span> Jesny
            </h1>
-           <div className="h-[2px] w-32 bg-white/40 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+           <div className="h-[2px] w-32 bg-black/40 shadow-[0_0_15px_rgba(0,0,0,0.1)]" />
         </motion.div>
 
         {/* Top-Right: Supporting line */}
@@ -63,13 +63,13 @@ export default function HeroTextOverlays({ scrollYProgress }: { scrollYProgress:
           className="md:text-right"
         >
            <div className="flex flex-col gap-1 mt-[40px]">
-             <span className="text-[11px] md:text-xs font-bold tracking-[0.5em] uppercase text-white/40">
+             <span className="text-[11px] md:text-xs font-bold tracking-[0.5em] uppercase text-white/60 text-shadow-[0_0_15px_rgba(0,0,0,0.1)]">
                 A Love That Began Then
              </span>
-             <span className="text-2xl md:text-4xl font-bold tracking-tight uppercase">
-                MAY<span className="text-white/20">|</span> 04 th <span className="text-white/20">|</span> 2026
+             <span className="text-2xl md:text-4xl font-bold tracking-tight uppercase text-white">
+                MAY<span className="text-black/20">|</span> 04 th <span className="text-black/20">|</span> 2026
              </span>
-             <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase mt-2 opacity-60">
+             <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase mt-2 text-white/60">
                 Jeevz Square Convention Centre, Kallidukku, Thrissur
              </span>
              <div className="flex md:justify-end">
