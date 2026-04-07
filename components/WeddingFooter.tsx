@@ -194,7 +194,7 @@ function CardFront() {
           fontSize: 9,
           letterSpacing: "0.55em",
           textTransform: "uppercase",
-          color: "rgba(0,0,0,0.35)",
+          color: "rgba(0, 0, 0, 0.73)",
           marginBottom: 20,
           fontWeight: 700,
         }}
@@ -214,13 +214,13 @@ function CardFront() {
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
           textAlign: "center",
-          color: "rgba(0,0,0,0.9)",
+          color: "rgba(0, 83, 7, 0.9)",
         }}
       >
         {weddingDetails.groom}
         <span
           style={{
-            color: "rgba(0,0,0,0.15)",
+          color: "rgba(0, 0, 0, 0.73)",
             margin: "0 12px",
             fontStyle: "normal",
             fontWeight: 200,
@@ -239,7 +239,7 @@ function CardFront() {
         style={{
           width: 48,
           height: 1,
-          background: "rgba(0,0,0,0.1)",
+          background: "rgba(0, 0, 0, 0.49)",
           margin: "16px auto",
         }}
       />
@@ -253,7 +253,7 @@ function CardFront() {
           fontSize: 11,
           letterSpacing: "0.42em",
           textTransform: "uppercase",
-          color: "rgba(0,0,0,0.4)",
+          color: "rgba(0, 0, 0, 0.73)",
           fontWeight: 600,
         }}
       >
@@ -292,7 +292,7 @@ function CardBack() {
             fontSize: 8,
             letterSpacing: "0.5em",
             textTransform: "uppercase",
-            color: "rgba(0,0,0,0.25)",
+            color: "rgba(0, 0, 0, 0.73)",
             fontWeight: 700,
             marginBottom: 6,
           }}
@@ -303,7 +303,7 @@ function CardBack() {
           style={{
             fontSize: 22,
             fontWeight: 300,
-            color: "rgba(0,0,0,0.88)",
+            color: "rgba(0, 78, 30, 0.73)",
             letterSpacing: "0.08em",
           }}
         >
@@ -312,7 +312,7 @@ function CardBack() {
         <p
           style={{
             fontSize: 12,
-            color: "rgba(0,0,0,0.5)",
+            color: "rgba(0, 0, 0, 0.73)",
             letterSpacing: "0.1em",
             marginTop: 3,
           }}
@@ -324,7 +324,7 @@ function CardBack() {
             fontSize: 9,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(0,0,0,0.25)",
+            color: "rgba(0, 0, 0, 0.73)",
             marginTop: 2,
           }}
         >
@@ -345,7 +345,7 @@ function CardBack() {
           style={{
             width: 30,
             height: 1,
-            background: "rgba(0,0,0,0.12)",
+            background: "rgba(0, 0, 0, 0.73)",
           }}
         />
         <div
@@ -360,7 +360,7 @@ function CardBack() {
           style={{
             width: 30,
             height: 1,
-            background: "rgba(0,0,0,0.12)",
+            background: "rgba(0, 0, 0, 0.73)",
           }}
         />
       </div>
@@ -372,7 +372,7 @@ function CardBack() {
             fontSize: 8,
             letterSpacing: "0.5em",
             textTransform: "uppercase",
-            color: "rgba(0,0,0,0.25)",
+            color: "rgba(0, 0, 0, 0.73)",
             fontWeight: 700,
             marginBottom: 6,
           }}
@@ -383,33 +383,41 @@ function CardBack() {
           style={{
             fontSize: 22,
             fontWeight: 300,
-            color: "rgba(0,0,0,0.88)",
+            color: "rgba(0, 78, 30, 0.73)",
             letterSpacing: "0.08em",
           }}
         >
           {weddingDetails.reception.time}
         </p>
-        <p
-          style={{
-            fontSize: 12,
-            color: "rgba(0,0,0,0.5)",
-            letterSpacing: "0.1em",
-            marginTop: 3,
-          }}
+        <a
+          href="https://www.google.com/maps/search/Jeevz+Square+Convention+Center+Thrissur"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none", cursor: "pointer" }}
+          className="hover:opacity-75 transition-opacity"
         >
-          {weddingDetails.reception.location.name}
-        </p>
-        <p
-          style={{
-            fontSize: 9,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: "rgba(0,0,0,0.25)",
-            marginTop: 2,
-          }}
-        >
-          {weddingDetails.reception.location.place}
-        </p>
+          <p
+            style={{
+              fontSize: 12,
+              color: "rgba(0, 0, 0, 0.73)",
+              letterSpacing: "0.1em",
+              marginTop: 3,
+            }}
+          >
+            {weddingDetails.reception.location.name}
+          </p>
+          <p
+            style={{
+              fontSize: 9,
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              color: "rgba(0, 0, 0, 0.73)",
+              marginTop: 2,
+            }}
+          >
+            {weddingDetails.reception.location.place}
+          </p>
+        </a>
       </div>
 
       {/* Thin rule */}
@@ -428,7 +436,7 @@ function CardBack() {
           fontSize: 8,
           letterSpacing: "0.5em",
           textTransform: "uppercase",
-          color: "rgba(0,0,0,0.2)",
+          color: "rgba(0, 0, 0, 0.73)",
           fontWeight: 700,
           marginBottom: 12,
         }}
@@ -452,7 +460,7 @@ function CardBack() {
               fontSize: 7,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "rgba(0,0,0,0.25)",
+              color: "rgba(0, 0, 0, 0.73)",
               fontWeight: 700,
               marginBottom: 4,
             }}
@@ -462,7 +470,7 @@ function CardBack() {
           <p
             style={{
               fontSize: 11,
-              color: "rgba(0,0,0,0.6)",
+              color: "rgba(0, 0, 0, 0.73)",
               letterSpacing: "0.08em",
               fontWeight: 300,
               lineHeight: 1.4,
@@ -483,7 +491,7 @@ function CardBack() {
               fontSize: 7,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "rgba(0,0,0,0.25)",
+              color: "rgba(0, 0, 0, 0.73)",
               fontWeight: 700,
               marginBottom: 4,
             }}
@@ -512,7 +520,7 @@ function CardBack() {
             fontSize: 7,
             letterSpacing: "0.45em",
             textTransform: "uppercase",
-            color: "rgba(0,0,0,0.18)",
+            color: "rgba(0, 0, 0, 0.73)",
             fontWeight: 700,
             marginBottom: 4,
           }}
@@ -522,7 +530,7 @@ function CardBack() {
         <p
           style={{
             fontSize: 13,
-            color: "rgba(0,0,0,0.4)",
+            color: "rgba(0, 0, 0, 0.73)",
             letterSpacing: "0.3em",
             fontStyle: "italic",
             fontWeight: 300,

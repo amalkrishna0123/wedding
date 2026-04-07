@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} h-full antialiased dark`}>
-      <body className="min-h-full font-sans bg-black text-white selection:bg-white/20 selection:text-white antialiased">
+    <html lang="en" className={`${outfit.variable} h-full antialiased light`}>
+      <body className="min-h-full font-sans bg-white text-black selection:bg-black/10 selection:text-black antialiased">
         <CustomCursor />
         {children}
         <AudioPlayer />

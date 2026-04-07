@@ -69,9 +69,14 @@ export default function HeroTextOverlays({ scrollYProgress }: { scrollYProgress:
              <span className="text-2xl md:text-4xl font-bold tracking-tight uppercase text-white">
                 MAY<span className="text-black/20">|</span> 04 th <span className="text-black/20">|</span> 2026
              </span>
-             <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase mt-2 text-white/60">
+             <a 
+               href="https://www.google.com/maps/search/Jeevz+Square+Convention+Center+Thrissur"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase mt-2 text-white/60 hover:text-white transition-colors cursor-pointer block pointer-events-auto"
+             >
                 Jeevz Square Convention Centre, Kallidukku, Thrissur
-             </span>
+             </a>
              <div className="flex md:justify-end">
                <CountdownTimer />
              </div>

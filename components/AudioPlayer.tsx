@@ -9,12 +9,24 @@ export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // You can replace this with a real audio file later if needed
-    // Assuming there's some audio track to be placed in public/assets/audio/
+    // Replace with actual audio or handle autoplay fallback
     audioRef.current = new Audio("/assets/audio/ambient.mp3");
     audioRef.current.loop = true;
+
+    const handleStartExperience = () => {
+      audioRef.current?.play().then(() => {
+        setIsPlaying(true);
+      }).catch(e => {
+        console.log("Playback failed. Please ensure ambient.mp3 exists in public/assets/audio/.", e);
+      });
+    };
+
+    // Listen for the custom experienceStarted event
+    window.addEventListener("experienceStarted", handleStartExperience);
+
     return () => {
       audioRef.current?.pause();
+      window.removeEventListener("experienceStarted", handleStartExperience);
     };
   }, []);
 
