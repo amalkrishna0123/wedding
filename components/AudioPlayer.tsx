@@ -12,26 +12,24 @@ export default function AudioPlayer() {
     // Replace with actual audio or handle autoplay fallback
     audioRef.current = new Audio("/assets/audio/ambient.mp3");
     audioRef.current.loop = true;
-
-    const handleStartExperience = () => {
-      audioRef.current?.play().then(() => {
-        setIsPlaying(true);
-      }).catch(e => {
-        console.log("Playback failed. Please ensure ambient.mp3 exists in public/assets/audio/.", e);
-      });
-    };
-
-    // Listen for the custom experienceStarted event
-    window.addEventListener("experienceStarted", handleStartExperience);
+    audioRef.current.muted = true;
+    
+    // The user now explicitly wants the audio to be muted/paused by default
+    // We remove the automatic playing logic that was triggered by Enter Invitation
 
     return () => {
       audioRef.current?.pause();
-      window.removeEventListener("experienceStarted", handleStartExperience);
     };
   }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
+    
+    // Unmute on first interaction - this is a common Safari optimization
+    if (audioRef.current.muted) {
+      audioRef.current.muted = false;
+    }
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {

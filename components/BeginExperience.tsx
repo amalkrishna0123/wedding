@@ -10,8 +10,6 @@ export default function BeginExperience({ onStart }: { onStart: () => void }) {
   const handleStart = () => {
     setIsVisible(false);
     onStart();
-    // Dispatch a custom event to notify components like AudioPlayer
-    window.dispatchEvent(new CustomEvent("experienceStarted"));
   };
 
   return (
@@ -64,7 +62,7 @@ export default function BeginExperience({ onStart }: { onStart: () => void }) {
               transition={{ delay: 1.5, duration: 1 }}
               className="text-[9px] font-bold tracking-[0.3em] uppercase text-black/40"
             >
-               Click to Experience Audio & Journey
+               Click to Begin the Journey
             </motion.p>
           </div>
 
