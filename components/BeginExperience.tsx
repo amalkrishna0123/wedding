@@ -2,12 +2,16 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useAudio } from "@/context/AudioContext";
 import { Play } from "lucide-react";
 
 export default function BeginExperience({ onStart }: { onStart: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
+  const { playAudio } = useAudio();
 
   const handleStart = () => {
+    // CRITICAL for iOS Safari: Call playAudio() synchronously in the click handler
+    playAudio();
     setIsVisible(false);
     onStart();
   };

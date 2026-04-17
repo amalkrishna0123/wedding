@@ -1,44 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useAudio } from "@/context/AudioContext";
 import { motion } from "framer-motion";
 import { Music, Pause } from "lucide-react";
 
 export default function AudioPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    // Replace with actual audio or handle autoplay fallback
-    audioRef.current = new Audio("/assets/audio/ambient.mp3");
-    audioRef.current.loop = true;
-    audioRef.current.muted = true;
-    
-    // The user now explicitly wants the audio to be muted/paused by default
-    // We remove the automatic playing logic that was triggered by Enter Invitation
-
-    return () => {
-      audioRef.current?.pause();
-    };
-  }, []);
-
-  const togglePlay = () => {
-    if (!audioRef.current) return;
-    
-    // Unmute on first interaction - this is a common Safari optimization
-    if (audioRef.current.muted) {
-      audioRef.current.muted = false;
-    }
-
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play().catch(e => {
-        console.log("Audio play failed. You need to add this audio file to public/assets/audio/ambient.mp3:", e);
-      });
-    }
-    setIsPlaying(!isPlaying);
-  };
+  const { isPlaying, togglePlay } = useAudio();
 
   return (
     <div className="fixed bottom-6 left-6 z-50">

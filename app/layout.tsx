@@ -9,6 +9,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jesnyjerrin.vercel.app/"),
   title: "Jerrin & Jesny | The Wedding",
   description: "Join us as we begin forever. A cinematic wedding journey.",
   openGraph: {
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 
 import AudioPlayer from "@/components/AudioPlayer";
 import CustomCursor from "@/components/CustomCursor";
+import { AudioProvider } from "@/context/AudioContext";
 
 export default function RootLayout({
   children,
@@ -38,9 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased light`}>
       <body className="min-h-full font-sans bg-white text-black selection:bg-black/10 selection:text-black antialiased">
-        <CustomCursor />
-        {children}
-        <AudioPlayer />
+        <AudioProvider>
+          <CustomCursor />
+          {children}
+          <AudioPlayer />
+        </AudioProvider>
       </body>
     </html>
   );
