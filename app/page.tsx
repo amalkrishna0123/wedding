@@ -5,9 +5,8 @@ import Hero from "@/components/Hero";
 import WishingSection from "@/components/Wishes/WishingSection";
 import CountdownTimer from "@/components/CountdownTimer";
 import WeddingFooter from "@/components/WeddingFooter";
-import BeginExperience from "@/components/BeginExperience";
 import { useInView, motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function Home() {
   const containerRef = useRef<HTMLElement>(null);  // <section> is an HTMLElement
@@ -26,11 +25,10 @@ export default function Home() {
   // Image 4: medium speed
   const y4 = useTransform(scrollYProgress, [0, 1], [150, -200]);
 
-  const [isStarted, setIsStarted] = useState(false);
+
 
   return (
     <main className="relative min-h-screen bg-white">
-      <BeginExperience onStart={() => setIsStarted(true)} />
       <Navbar />
       
       {/* 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback, useMemo } from "react";
 import { motion, useSpring } from "framer-motion";
 
 const weddingDetails = {
@@ -43,31 +43,35 @@ const weddingDetails = {
 
 // ─── Floating Particle ────────────────────────────────────────────────────────
 function Particle({ index }: { index: number }) {
-  const size = 2 + Math.random() * 3;
-  const xStart = Math.random() * 100;
-  const duration = 8 + Math.random() * 14;
-  const delay = Math.random() * -20;
-  const xDrift = (Math.random() - 0.5) * 120;
+  const config = useMemo(() => ({
+    size: 2 + Math.random() * 3,
+    xStart: Math.random() * 100,
+    duration: 8 + Math.random() * 14,
+    delay: Math.random() * -20,
+    xDrift: (Math.random() - 0.5) * 120,
+    background: `radial-gradient(circle, rgba(0,0,0,${0.06 + Math.random() * 0.12}), transparent)`,
+    yTarget: -(600 + Math.random() * 400),
+  }), []);
 
   return (
     <motion.div
       className="absolute rounded-full pointer-events-none"
       style={{
-        width: size,
-        height: size,
-        left: `${xStart}%`,
+        width: config.size,
+        height: config.size,
+        left: `${config.xStart}%`,
         bottom: "-10px",
-        background: `radial-gradient(circle, rgba(0,0,0,${0.06 + Math.random() * 0.12}), transparent)`,
+        background: config.background,
       }}
       animate={{
-        y: [0, -(600 + Math.random() * 400)],
-        x: [0, xDrift],
+        y: [0, config.yTarget],
+        x: [0, config.xDrift],
         opacity: [0, 0.4, 0.2, 0],
         scale: [0.5, 1, 0.8, 0],
       }}
       transition={{
-        duration,
-        delay,
+        duration: config.duration,
+        delay: config.delay,
         repeat: Infinity,
         ease: "linear",
       }}
@@ -207,6 +211,7 @@ function CardFront() {
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ delay: 0.4, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        className="relative"
         style={{
           fontSize: "clamp(2.2rem, 6vw, 3.5rem)",
           fontWeight: 300,
@@ -249,6 +254,7 @@ function CardFront() {
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0, duration: 0.7 }}
+        className="relative"
         style={{
           fontSize: 11,
           letterSpacing: "0.42em",
@@ -688,6 +694,7 @@ export default function WeddingFooter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.1 }}
+          className="relative"
           style={{
             fontSize: 9,
             letterSpacing: "0.65em",
@@ -712,6 +719,7 @@ export default function WeddingFooter() {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={() => setIsFlipped((f) => !f)}
+          className="relative"
           style={{
             perspective: 1200,
             cursor: "pointer",

@@ -8,15 +8,20 @@ interface WishCardProps {
   name: string;
   wishText: string;
   index: number;
+  onClick?: () => void;
 }
 
-export default function WishCard({ name, wishText, index }: WishCardProps) {
+export default function WishCard({ name, wishText, index, onClick }: WishCardProps) {
   const [mounted, setMounted] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
+
+  // Character truncation logic
+  const truncatedName = name.length > 25 ? name.slice(0, 25).trim() + "..." : name;
+  const truncatedWish = wishText.length > 120 ? wishText.slice(0, 120).trim() + "..." : wishText;
 
   // 3D Rotation based on mouse position
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
@@ -51,6 +56,7 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
     <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       initial={{ opacity: 0, y: 100, rotate: offsetRotate }}
       animate={{ opacity: 1, y: offsetY }}
       style={{
@@ -59,14 +65,14 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
         rotateZ: offsetRotate,
         transformStyle: "preserve-3d",
       }}
-      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-white border border-black/5 rounded-[60px] group transition-all duration-1000 hover:border-black/30 cursor-grab active:cursor-grabbing shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)]"
+      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-white border border-black/5 rounded-[60px] group transition-all duration-1000 hover:border-black/30 cursor-pointer active:scale-95 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)]"
     >
       {/* Felt/Paper Texture Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay rounded-[60px]" 
            style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/felt.png")' }} />
 
       {/* Parallax Content Layers */}
-      <div style={{ transform: "translateZ(40px)" }} className="relative h-full flex flex-col justify-between">
+      <div style={{ transform: "translateZ(40px)" }} className="relative h-full flex flex-col justify-between pointer-events-none">
          <div className="space-y-8">
             <motion.div
               animate={{ rotate: [0, 5, -5, 0] }}
@@ -76,7 +82,7 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
             </motion.div>
             
             <p className="text-2xl md:text-3xl font-medium tracking-tight italic leading-[1.4] text-black/60 group-hover:text-black transition-colors duration-1000 line-clamp-6">
-               “{wishText}”
+               “{truncatedWish}”
             </p>
          </div>
 
@@ -85,7 +91,7 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
                With Heartfelt Love
             </span>
             <span className="block text-lg font-bold tracking-tight uppercase text-black/80 group-hover:text-black transition-all duration-1000">
-               {name}
+               {truncatedName}
             </span>
          </div>
       </div>
@@ -103,3 +109,4 @@ export default function WishCard({ name, wishText, index }: WishCardProps) {
     </motion.div>
   );
 }
+

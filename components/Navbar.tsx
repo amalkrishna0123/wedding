@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { VolumeX, Volume2 } from "lucide-react";
+import { useAudio } from "@/context/AudioContext";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -12,8 +13,7 @@ function cn(...inputs: ClassValue[]) {
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { isPlaying, togglePlay } = useAudio();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -21,53 +21,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Background music initialization
-    const audio = new Audio("/audio/hero.mpeg");
-    audio.loop = true;
-    audio.volume = 0;
-    audioRef.current = audio;
 
-    const playAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(() => {
-          console.log("Autoplay blocked, waiting for interaction");
-        });
-        setIsPlaying(true);
-        // Subtle volume ramp up
-        let vol = 0;
-        const interval = setInterval(() => {
-          if (vol < 0.3) {
-            vol += 0.02;
-            if (audioRef.current) audioRef.current.volume = vol;
-          } else {
-            clearInterval(interval);
-          }
-        }, 150);
-      }
-      window.removeEventListener("click", playAudio);
-    };
-
-    window.addEventListener("click", playAudio);
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      window.removeEventListener("click", playAudio);
-    };
-  }, []);
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   return (
     <motion.nav
@@ -91,7 +45,7 @@ export default function Navbar() {
       <div className="flex items-center gap-10">
         {/* Music Toggle */}
         <button
-          onClick={toggleMusic}
+          onClick={togglePlay}
           className="relative flex items-center gap-3 group"
           aria-label={isPlaying ? "Pause background music" : "Play background music"}
         >

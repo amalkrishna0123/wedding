@@ -7,6 +7,7 @@ import { db } from "@/lib/firebase";
 import { ref, onValue, query, limitToLast } from "firebase/database";
 import WishCard from "./WishCard";
 import WishModal from "./WishModal";
+import WishDetailModal from "./WishDetailModal";
 import BubbleBackground from "./BubbleBackground";
 
 interface Wish {
@@ -20,17 +21,19 @@ export default function WishingSection() {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedWish, setSelectedWish] = useState<Wish | null>(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselContainerRef = useRef<HTMLDivElement>(null);
 
   // Auto-rotate logic every 6 seconds
   useEffect(() => {
-    if (wishes.length <= 1) return;
+    if (wishes.length <= 1 || isDetailModalOpen) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % wishes.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, [wishes.length]);
+  }, [wishes.length, isDetailModalOpen]);
 
   // Real-time Firebase Listener
   useEffect(() => {
@@ -54,6 +57,11 @@ export default function WishingSection() {
 
   const nextSlide = () => setActiveIndex((prev) => (prev + 1) % wishes.length);
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + wishes.length) % wishes.length);
+
+  const handleWishClick = (wish: Wish) => {
+    setSelectedWish(wish);
+    setIsDetailModalOpen(true);
+  };
 
   return (
     <section className="relative min-h-[140vh] bg-white py-40 overflow-hidden flex flex-col justify-center">
@@ -124,27 +132,27 @@ export default function WishingSection() {
                className="h-[600px] flex flex-col items-center justify-center gap-8 text-center border border-black/5 rounded-[80px] bg-black/[0.01] backdrop-blur-3xl"
              >
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-full border border-black/5 flex items-center justify-center mb-4">
-                    <Plus className="w-8 h-8 text-black/10" />
-                  </div>
-                  <div className="absolute inset-0 border border-black/10 rounded-full animate-ping opacity-20" />
+                   <div className="w-24 h-24 rounded-full border border-black/5 flex items-center justify-center mb-4">
+                     <Plus className="w-8 h-8 text-black/10" />
+                   </div>
+                   <div className="absolute inset-0 border border-black/10 rounded-full animate-ping opacity-20" />
                 </div>
                 <div className="space-y-4">
-                  <span className="text-[11px] font-black tracking-[0.6em] uppercase text-black/20">
-                     The silence of first love
-                  </span>
-                  <p className="text-black/40 font-light italic text-2xl max-w-sm mx-auto">
-                     "Our guestbook is waiting for your signature."
-                  </p>
+                   <span className="text-[11px] font-black tracking-[0.6em] uppercase text-black/20">
+                      The silence of first love
+                   </span>
+                   <p className="text-black/40 font-light italic text-2xl max-w-sm mx-auto">
+                      "Our guestbook is waiting for your signature."
+                   </p>
                 </div>
              </motion.div>
            ) : (
              <div className="relative">
                 {/* Horizontal Sliding List */}
                 <motion.div 
-                  className="flex gap-12 md:gap-20 transition-all cursor-default pr-[20vw]"
-                  animate={{ x: `calc(-${activeIndex * 320}px - ${activeIndex * 48}px)` }}
-                  transition={{ type: "spring", stiffness: 20, damping: 10 }}
+                   className="flex gap-12 md:gap-20 transition-all cursor-default pr-[20vw]"
+                   animate={{ x: `calc(-${activeIndex * 320}px - ${activeIndex * 48}px)` }}
+                   transition={{ type: "spring", stiffness: 20, damping: 10 }}
                 >
                    {wishes.map((wish, i) => (
                       <WishCard 
@@ -152,12 +160,13 @@ export default function WishingSection() {
                         name={wish.name} 
                         wishText={wish.wishText} 
                         index={i}
+                        onClick={() => handleWishClick(wish)}
                       />
                    ))}
                 </motion.div>
                 
                 {/* Visual Navigation Layer */}
-                <div className="mt-24 flex items-center justify-between">
+                <div className="mt-24 flex flex-col md:flex-row items-center justify-between">
                    {/* Progress Indicator */}
                    <div className="flex items-center gap-6">
                       <div className="flex items-center gap-3">
@@ -175,7 +184,7 @@ export default function WishingSection() {
                    </div>
 
                    {/* Custom Arrows */}
-                   <div className="flex items-center gap-6">
+                   <div className="flex mt-10 md:mt-0 items-center gap-6">
                       <button 
                         onClick={prevSlide} 
                         className="group w-16 h-16 flex items-center justify-center rounded-full border border-black/10 hover:border-black transition-all duration-500 hover:scale-110"
@@ -196,6 +205,14 @@ export default function WishingSection() {
       </div>
 
       <WishModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      <WishDetailModal 
+        isOpen={isDetailModalOpen} 
+        onClose={() => setIsDetailModalOpen(false)}
+        name={selectedWish?.name || ""}
+        wishText={selectedWish?.wishText || ""}
+      />
     </section>
   );
 }
+
