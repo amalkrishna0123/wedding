@@ -33,7 +33,7 @@ const Bubble = ({ index }: { index: number }) => {
         width: randomSize,
         height: randomSize,
       }}
-      className="absolute rounded-full border border-black/10 bg-black/5 backdrop-blur-[1px]"
+      className="absolute rounded-full border border-black/10 bg-black/5 md:backdrop-blur-[1px]"
     />
   );
 };
@@ -42,7 +42,8 @@ export default function BubbleBackground() {
   const [bubbles, setBubbles] = useState<number[]>([]);
 
   useEffect(() => {
-    setBubbles(Array.from({ length: 20 }, (_, i) => i));
+    const isMobile = window.innerWidth < 768;
+    setBubbles(Array.from({ length: isMobile ? 8 : 20 }, (_, i) => i));
   }, []);
 
   return (

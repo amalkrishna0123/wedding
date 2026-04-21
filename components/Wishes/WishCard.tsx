@@ -60,19 +60,19 @@ export default function WishCard({ name, wishText, index, onClick }: WishCardPro
       initial={{ opacity: 0, y: 100, rotate: offsetRotate }}
       animate={{ opacity: 1, y: offsetY }}
       style={{
-        rotateX,
-        rotateY,
+        rotateX: mounted && window.innerWidth >= 768 ? rotateX : 0,
+        rotateY: mounted && window.innerWidth >= 768 ? rotateY : 0,
         rotateZ: offsetRotate,
-        transformStyle: "preserve-3d",
+        transformStyle: mounted && window.innerWidth >= 768 ? "preserve-3d" : "flat",
       }}
-      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-white border border-black/5 rounded-[60px] group transition-all duration-1000 hover:border-black/30 cursor-pointer active:scale-95 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)]"
+      className="relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/5] p-12 bg-white border border-black/5 rounded-[60px] group transition-all duration-1000 hover:border-black/30 cursor-pointer active:scale-95 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)] will-change-transform"
     >
       {/* Felt/Paper Texture Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay rounded-[60px]" 
            style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/felt.png")' }} />
 
       {/* Parallax Content Layers */}
-      <div style={{ transform: "translateZ(40px)" }} className="relative h-full flex flex-col justify-between pointer-events-none">
+      <div style={{ transform: mounted && window.innerWidth >= 768 ? "translateZ(40px)" : "none" }} className="relative h-full flex flex-col justify-between pointer-events-none">
          <div className="space-y-8">
             <motion.div
               animate={{ rotate: [0, 5, -5, 0] }}
@@ -98,8 +98,8 @@ export default function WishCard({ name, wishText, index, onClick }: WishCardPro
       
       {/* Decorative Floating Element for Depth */}
       <div 
-        style={{ transform: "translateZ(60px)" }}
-        className="absolute -bottom-6 -right-6 w-20 h-20 bg-white/[0.02] border border-white/10 rounded-[30px] rotate-[-15deg] group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-1000 backdrop-blur-2xl pointer-events-none flex items-center justify-center"
+        style={{ transform: mounted && window.innerWidth >= 768 ? "translateZ(60px)" : "none" }}
+        className="absolute -bottom-6 -right-6 w-20 h-20 bg-white/[0.02] border border-white/10 rounded-[30px] rotate-[-15deg] group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-1000 md:backdrop-blur-2xl pointer-events-none flex items-center justify-center"
       >
           <div className="w-1 h-1 bg-white/20 rounded-full" />
       </div>

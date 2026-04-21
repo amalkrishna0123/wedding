@@ -42,16 +42,16 @@ const weddingDetails = {
 };
 
 // ─── Floating Particle ────────────────────────────────────────────────────────
-function Particle({ index }: { index: number }) {
+function Particle({ index, isMobile }: { index: number; isMobile: boolean }) {
   const config = useMemo(() => ({
-    size: 2 + Math.random() * 3,
+    size: (2 + Math.random() * 3) * (isMobile ? 0.8 : 1),
     xStart: Math.random() * 100,
-    duration: 8 + Math.random() * 14,
+    duration: (8 + Math.random() * 14) * (isMobile ? 1.2 : 1),
     delay: Math.random() * -20,
-    xDrift: (Math.random() - 0.5) * 120,
-    background: `radial-gradient(circle, rgba(0,0,0,${0.06 + Math.random() * 0.12}), transparent)`,
-    yTarget: -(600 + Math.random() * 400),
-  }), []);
+    xDrift: (Math.random() - 0.5) * (isMobile ? 60 : 120),
+    background: `radial-gradient(circle, rgba(0,0,0,${(0.06 + Math.random() * 0.12) * (isMobile ? 0.6 : 1)}), transparent)`,
+    yTarget: -(600 + Math.random() * 400) * (isMobile ? 0.6 : 1),
+  }), [isMobile]);
 
   return (
     <motion.div
@@ -87,13 +87,17 @@ function BlurBlob({
   size,
   color,
   delay,
+  isMobile,
 }: {
   x: string;
   y: string;
   size: number;
   color: string;
   delay: number;
+  isMobile: boolean;
 }) {
+  if (isMobile) return null; // Remove expensive blur blobs on mobile
+
   return (
     <motion.div
       className="absolute rounded-full pointer-events-none"
@@ -645,6 +649,7 @@ export default function WeddingFooter() {
           size={360}
           color="rgba(120,80,180,0.07)"
           delay={0}
+          isMobile={isMobile}
         />
         <BlurBlob
           x="80%"
@@ -652,6 +657,7 @@ export default function WeddingFooter() {
           size={280}
           color="rgba(80,100,200,0.06)"
           delay={2}
+          isMobile={isMobile}
         />
         <BlurBlob
           x="50%"
@@ -659,12 +665,13 @@ export default function WeddingFooter() {
           size={420}
           color="rgba(200,150,255,0.04)"
           delay={4}
+          isMobile={isMobile}
         />
 
         {/* Particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {particles.map((i) => (
-            <Particle key={i} index={i} />
+          {particles.slice(0, isMobile ? 10 : 28).map((i) => (
+            <Particle key={i} index={i} isMobile={isMobile} />
           ))}
         </div>
 
@@ -771,7 +778,7 @@ export default function WeddingFooter() {
                     background:
                       "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(200,180,255,0.1) 100%)",
                     border: "1px solid rgba(0,0,0,0.1)",
-                    backdropFilter: "blur(20px)",
+                    backdropFilter: isMobile ? "blur(8px)" : "blur(20px)",
                     boxShadow:
                       "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transformStyle: "preserve-3d",
@@ -790,7 +797,7 @@ export default function WeddingFooter() {
                     background:
                       "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 50%, rgba(150,120,220,0.1) 100%)",
                     border: "1px solid rgba(0,0,0,0.08)",
-                    backdropFilter: "blur(20px)",
+                    backdropFilter: isMobile ? "blur(8px)" : "blur(20px)",
                     boxShadow:
                       "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transform: "rotateY(180deg)",
@@ -899,7 +906,7 @@ export default function WeddingFooter() {
               boxShadow: "0 40px 100px rgba(0,0,0,0.1), 0 0 80px rgba(180,150,255,0.05)",
               border: "1px solid rgba(0,0,0,0.1)",
               background: "rgba(255, 255, 255, 0.6)",
-              backdropFilter: "blur(20px)",
+              backdropFilter: isMobile ? "blur(10px)" : "blur(20px)",
               position: "relative",
             }}
           >

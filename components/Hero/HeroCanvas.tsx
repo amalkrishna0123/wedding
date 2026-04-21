@@ -18,6 +18,7 @@ export default function HeroCanvas({ scrollYProgress }: { scrollYProgress: Motio
             src="/assets/Us/2.jpeg"
             alt="Jerrin & Jesny"
             className="block w-full h-full object-cover"
+            loading="eager"
           />
           
           {/* subtle light gradient overlay for text readability if needed */}
