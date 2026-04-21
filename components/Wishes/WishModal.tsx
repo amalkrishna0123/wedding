@@ -55,7 +55,7 @@ export default function WishModal({ isOpen, onClose }: WishModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-white/90 backdrop-blur-sm"
+            className="absolute inset-0 bg-white md:bg-white/90 md:backdrop-blur-sm"
           />
 
           {/* Modal Content */}

@@ -60,7 +60,7 @@ export default function Home() {
             
             {/* Subtle Overlay Hint */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10 rounded-2xl opacity-0 hover:opacity-100 transition-opacity">
-               <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-xl">
+               <div className="bg-white md:bg-white/90 md:backdrop-blur-md px-4 py-2 rounded-full shadow-xl">
                   <span className="text-[9px] font-black tracking-[0.4em] uppercase text-black">
                      Share Invitation
                   </span>

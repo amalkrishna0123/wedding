@@ -26,7 +26,7 @@ export default function AudioPlayer() {
 
       <motion.button
         onClick={togglePlay}
-        className="relative flex items-center justify-center w-12 h-12 rounded-full border border-black/10 bg-black/5 backdrop-blur-md text-black/60 hover:text-black hover:bg-black/10 hover:border-black/20 transition-all overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.03)] cursor-pointer"
+        className="relative flex items-center justify-center w-12 h-12 rounded-full border border-black/10 bg-white md:bg-black/5 md:backdrop-blur-md text-black/60 hover:text-black hover:bg-black/10 hover:border-black/20 transition-all overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.03)] cursor-pointer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

@@ -157,7 +157,7 @@ function HangingString() {
 }
 
 // ─── Card Face: Front ─────────────────────────────────────────────────────────
-function CardFront() {
+function CardFront({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
       {/* Ornamental top */}
@@ -212,7 +212,7 @@ function CardFront() {
 
       {/* Names */}
       <motion.h2
-        initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+        initial={{ opacity: 0, y: 20, filter: isMobile ? "none" : "blur(8px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ delay: 0.4, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
         className="relative"
@@ -292,7 +292,7 @@ function CardFront() {
 }
 
 // ─── Card Face: Back ──────────────────────────────────────────────────────────
-function CardBack() {
+function CardBack({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center px-8 select-none">
       {/* Ceremony */}
@@ -638,7 +638,7 @@ export default function WeddingFooter() {
             borderRadius: "50%",
             background:
               "radial-gradient(circle, rgba(180,160,220,0.06) 0%, transparent 70%)",
-            filter: "blur(20px)",
+            filter: isMobile ? "none" : "blur(20px)",
           }}
         />
 
@@ -778,14 +778,14 @@ export default function WeddingFooter() {
                     background:
                       "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(200,180,255,0.1) 100%)",
                     border: "1px solid rgba(0,0,0,0.1)",
-                    backdropFilter: isMobile ? "blur(8px)" : "blur(20px)",
+                    backdropFilter: isMobile ? "none" : "blur(20px)",
                     boxShadow:
                       "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transformStyle: "preserve-3d",
                     backfaceVisibility: "hidden",
                   }}
                 >
-                  <CardFront />
+                  <CardFront isMobile={isMobile} />
                 </div>
 
                 {/* Back */}
@@ -797,7 +797,7 @@ export default function WeddingFooter() {
                     background:
                       "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 50%, rgba(150,120,220,0.1) 100%)",
                     border: "1px solid rgba(0,0,0,0.08)",
-                    backdropFilter: isMobile ? "blur(8px)" : "blur(20px)",
+                    backdropFilter: isMobile ? "none" : "blur(20px)",
                     boxShadow:
                       "0 0 60px rgba(180,150,255,0.05), 0 30px 80px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8)",
                     transform: "rotateY(180deg)",
@@ -805,7 +805,7 @@ export default function WeddingFooter() {
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  <CardBack />
+                  <CardBack isMobile={isMobile} />
                 </div>
               </motion.div>
             </motion.div>
@@ -822,7 +822,7 @@ export default function WeddingFooter() {
             borderRadius: "50%",
             background:
               "radial-gradient(ellipse, rgba(180,150,255,0.15) 0%, transparent 70%)",
-            filter: "blur(12px)",
+            filter: isMobile ? "none" : "blur(12px)",
             marginTop: 16,
           }}
         />
@@ -906,7 +906,7 @@ export default function WeddingFooter() {
               boxShadow: "0 40px 100px rgba(0,0,0,0.1), 0 0 80px rgba(180,150,255,0.05)",
               border: "1px solid rgba(0,0,0,0.1)",
               background: "rgba(255, 255, 255, 0.6)",
-              backdropFilter: isMobile ? "blur(10px)" : "blur(20px)",
+              backdropFilter: isMobile ? "none" : "blur(20px)",
               position: "relative",
             }}
           >

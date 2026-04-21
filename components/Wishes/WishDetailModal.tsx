@@ -30,7 +30,7 @@ export default function WishDetailModal({ isOpen, onClose, name, wishText }: Wis
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-white/90 backdrop-blur-md"
+            className="absolute inset-0 bg-white md:bg-white/90 md:backdrop-blur-md"
           />
 
           <motion.div
@@ -88,7 +88,7 @@ export default function WishDetailModal({ isOpen, onClose, name, wishText }: Wis
             </div>
 
             {/* Decorative Floating Element */}
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black/[0.02] rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black/[0.02] rounded-full md:blur-3xl pointer-events-none" />
           </motion.div>
         </div>
       )}

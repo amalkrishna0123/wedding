@@ -59,16 +59,16 @@ export default function CountdownTimer() {
     <div className="flex items-center gap-3 md:gap-5 mt-6">
       {timeBlocks.map((block, index) => (
         <div key={block.label} className="flex flex-col items-center">
-          <div className="relative overflow-hidden rounded-lg border border-black/10 bg-white/60 backdrop-blur-md px-3 py-2 md:px-5 md:py-4 shadow-xl">
+          <div className="relative overflow-hidden rounded-lg border border-black/10 bg-white md:bg-white/60 md:backdrop-blur-md px-3 py-2 md:px-5 md:py-4 shadow-xl">
             {/* Subtle top glare */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-black/10 to-transparent" />
             
             <AnimatePresence mode="popLayout">
               <motion.span
                 key={block.value}
-                initial={{ y: 15, opacity: 0, filter: "blur(4px)" }}
+                initial={{ y: 15, opacity: 0, filter: window.innerWidth >= 768 ? "blur(4px)" : "none" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                exit={{ y: -15, opacity: 0, filter: "blur(4px)" }}
+                exit={{ y: -15, opacity: 0, filter: window.innerWidth >= 768 ? "blur(4px)" : "none" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="block text-2xl md:text-5xl font-light tracking-tight tabular-nums text-black"
               >

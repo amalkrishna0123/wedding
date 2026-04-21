@@ -129,7 +129,7 @@ export default function WishingSection() {
              <motion.div 
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
-               className="h-[600px] flex flex-col items-center justify-center gap-8 text-center border border-black/5 rounded-[80px] bg-black/[0.01] backdrop-blur-3xl"
+               className="h-[600px] flex flex-col items-center justify-center gap-8 text-center border border-black/5 rounded-[80px] bg-white md:bg-black/[0.01] md:backdrop-blur-3xl"
              >
                 <div className="relative">
                    <div className="w-24 h-24 rounded-full border border-black/5 flex items-center justify-center mb-4">
